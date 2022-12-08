@@ -1,6 +1,6 @@
 ﻿package com.gb.data;
 
-public class Product {
+public abstract class Product {
     
     private String name;
     private Double cost;

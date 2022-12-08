@@ -2,11 +2,11 @@
 
 import java.util.List;
 
-public class BottleMachine implements Machine {
-
+public class SnackMachine implements Machine{
+    
     private final List<Product> products;
 
-    public BottleMachine(List<Product> products) {this.products = products;}
+    public SnackMachine(List<Product> products) {this.products = products;}
 
     public Product getProduct(String name) {
         
@@ -18,17 +18,16 @@ public class BottleMachine implements Machine {
         throw new IllegalStateException(String.format("Product %s not found!", name));
     }
 
-    public Drinks getProduct(String name, Double volume) {
+    public Snacks getProduct(String name, String taste) {
         
         for (Product product: products) {
-            if (product instanceof Drinks) {
+            if (product instanceof Snacks) {
                 if(product.getName().equalsIgnoreCase(name) && 
-                    ((Drinks)product).getVolume() == volume) {
-                    return (Drinks) product;
+                    ((Snacks)product).getTaste() == taste) {
+                    return (Snacks) product;
                 }
             }
         }
         throw new IllegalStateException(String.format("Product %s not found!", name));
     }
-    
 }
